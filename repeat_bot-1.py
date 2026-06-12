@@ -35,6 +35,8 @@ async def receive_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=stop_button
     )
 
+    print("JOB_QUEUE =", context.job_queue)
+
     job = context.job_queue.run_repeating(
         repeat_message,
         interval=60,
