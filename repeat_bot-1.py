@@ -67,6 +67,9 @@ async def stop_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = Application.builder().token(BOT_TOKEN).build()
+
+    print("APP JOBQUEUE:", app.job_queue)
+    
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(stop_handler, pattern="^stop$"))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, receive_message))
